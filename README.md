@@ -1,2 +1,2 @@
 # lzklzk
-没啥说的
+github很好用啊
