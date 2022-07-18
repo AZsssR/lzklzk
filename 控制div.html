@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制div属性</title>
+    <style>
+        #large{
+            width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+        #content{
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<script>
+
+var changeStyle = function(el,onStyle,val){
+        el.style[onStyle] = val
+    }
+
+window.onload = function(){
+    var onBtn = document.getElementsByTagName('input')
+    var onDiv = document.getElementById('content')
+    
+    var onStyle = ['width','height','background','display','display']
+    var onVal = ['700px','700px','red','none','block']
+
+    for(var i = 0; i< onBtn.length-1  ; i++){
+        onBtn[i].index = i
+        onBtn[i].onclick = function (){
+            this.index == onBtn.length-1 && (onDiv.style.cssText = "");
+
+            changeStyle(onDiv,onStyle[this.index],onVal[this.index])
+        }
+    }
+}
+   
+    
+
+</script>
+<body>
+    <div id="large">
+        <input type="button" value="变宽">
+        <input type="button" value="变高">
+        <input type="button" value="变色">
+        <input type="button" value="隐藏">
+        <input type="button" value="重置">
+        <div id="content"></div>
+    </div>
+</body>
+</html>
